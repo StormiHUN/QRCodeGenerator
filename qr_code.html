@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR kódok</title>
+</head>
+<style>
+
+    body{
+        background-color: bisque;
+    }
+
+    #adatok, #kep{
+        width: 700px;
+        margin: 0 auto;
+    }
+
+</style>
+<script>
+
+    function general(){
+        let meret = document.getElementById("meret").value
+        let szoveg = document.getElementById("text").value
+        let html = "<img src='https://api.qrserver.com/v1/create-qr-code/?size="+meret+"&data="+szoveg+"'>"
+        document.getElementById("kep").innerHTML = html
+    }
+
+</script>
+<body>
+    
+    <div id="adatok">
+        Méret: <select id="meret">
+            <option value="150x150">150x150</option>
+            <option value="256x256" selected>256x256</option>
+            <option value="512x512">512x512</option>
+        </select>
+        <input type="text" id="text" value="Szöveg">
+        <input type="button" value="Generál" onclick="general()">
+    </div>
+    <div id="kep"></div>
+
+</body>
+</html>
